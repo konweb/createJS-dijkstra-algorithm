@@ -1,0 +1,21 @@
+{
+  "name": "gulp-site-template",
+  "description": "",
+  "main": "gulpfile.coffee",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "EaselJS": "easeljs#^0.8.2",
+    "tween.js": "tweenjs#^16.3.5"
+  }
+}

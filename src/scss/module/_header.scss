@@ -1,0 +1,221 @@
+.header {
+  border-bottom: solid 1px #d3d3d3;
+  background: #fff;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+
+  @at-root {
+    body.home & {
+      transform: translateY(-58px);
+      transition: .4s;
+
+      &.is-fixed {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__page {
+    color: $color-headline;
+    font-family: $font-yu-mincho;
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  &__title {
+    color: $color-headline;
+    float: left;
+    margin: 0;
+    padding: 13px 15px;
+
+    &--name {
+      font-family: $font-alice;
+      letter-spacing: 10px;
+
+      a {
+        color: $color-headline;
+      }
+    }
+
+    &--description {
+      font-size: $font-size-xs;
+      font-family: $font-yu-mincho;
+      display: none;
+
+      @media screen and (min-width: 361px) {
+        display: inline-block;
+      }
+
+      @media screen and (min-width: $screen-sm) {
+        display: none;
+      }
+
+      @media screen and (min-width: $screen-md) {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__bar {
+    @include clearfix;
+
+    @media screen and (min-width: $screen-sm) {
+      float: left;
+
+      &:before {
+        display: inline
+      }
+    }
+  }
+
+  &__nav {
+    &--bars {
+      color: $color-main;
+      float: right;
+      padding: 13px 15px;
+      font-size: 0;
+
+      @media screen and (min-width: $screen-sm) {
+        display: none;
+      }
+
+      &:before {
+        content: '\EA07';
+        font-size: $font-size-s;
+        font-family: 'icon-font';
+      }
+
+      &.is-open {
+        background: $color-main;
+        color: #fff;
+      }
+    }
+
+    &--list {
+      $list: &;
+
+      background: $color-main;
+      display: none;
+      font-size: 0;
+
+      @media screen and (min-width: $screen-sm) {
+        background: #fff;
+        display: block !important;
+        float: right;
+      }
+
+      &.is-open {
+        #{$list}-item {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      &-item {
+        $list-item: &;
+
+        font-size: $font-size-s;
+        opacity: 0;
+        transition-duration: .8s;
+        transform: translateX(30px);
+
+        @media screen and (min-width: $screen-sm) {
+          display: inline-block;
+          font-size: 1.3rem;
+          opacity: 1;
+          transition-duration: .2s;
+          transform: translateX(0);
+        }
+
+        @for $i from 1 through 7 {
+          &:nth-child(#{$i}) {
+            transition-delay: #{$i * 0.1}s;
+
+            @media screen and (min-width: $screen-sm) {
+              transition-delay: 0s;
+            }
+          }
+
+        }
+
+        & + & {
+          border-top: solid 1px lighten( $color-main, 2% );
+
+          @media screen and (min-width: $screen-sm) {
+            border-top: none;
+          }
+        }
+
+        &:last-child {
+          @media screen and (min-width: $screen-sm) {
+            background: $color-main;
+
+            a{
+              padding-top: 16px;
+              padding-bottom: 16px;
+
+              &:after {
+                display: none;
+              }
+            }
+          }
+
+          @media screen and (min-width: $screen-md) {
+            a {
+              padding-left: 40px;
+              padding-right: 40px;
+
+              &:after {
+                display: inline-block;
+              }
+            }
+
+          }
+        }
+
+        a {
+          color: #fff;
+          display: block;
+          padding: 15px;
+          position: relative;
+
+          &:after {
+            @include icon-arrow-right();
+          }
+
+          &:hover {
+            background: lighten( $color-main, 2% );
+          }
+
+          @media screen and (min-width: $screen-sm) {
+            padding: 15px 10px;
+
+            @at-root {
+              #{$list-item}:not(:last-child) a {
+                color: $color-headline;
+
+                &:after {
+                  content: '';
+                }
+
+                &:hover {
+                  background: #f9f9f9;
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

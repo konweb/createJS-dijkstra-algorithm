@@ -1,0 +1,21 @@
+.site-content {
+  margin-top: 50px;
+
+  @at-root {
+    body:not(.home) & {
+      padding-top: 48px;
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    margin-top: 80px;
+  }
+
+  &__wrapper {
+    max-width: 970px;
+    margin: 50px auto 0 auto;
+    padding: 0 20px;
+  }
+
+}

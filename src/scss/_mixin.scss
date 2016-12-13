@@ -1,0 +1,16 @@
+@mixin position-vertical-center-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+@mixin icon-arrow-right {
+  content:'\EA03';
+  font-family: 'icon-font';
+  font-size: $font-size-xxs;
+  @include position-vertical-center-right();
+  height: 14px;
+  margin-right: 15px;
+}
