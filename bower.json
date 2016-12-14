@@ -16,6 +16,6 @@
   ],
   "dependencies": {
     "EaselJS": "easeljs#^0.8.2",
-    "tween.js": "tweenjs#^16.3.5"
+    "TweenJS": "^0.6.2"
   }
 }

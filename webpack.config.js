@@ -32,8 +32,7 @@ module.exports = {
     extensions: ['', '.js', '.coffee'], // requireする際に、拡張子を省略するための設定
     alias: {
       'modules': 'src/js/modules',
-      'utils': 'src/js/all/utils.coffee',
-      'config': 'src/js/all/config.coffee'
+      'utils': 'src/js/all/utils.coffee'
     },
     modulesDirectories: ['node_modules', 'bower_components']
   },

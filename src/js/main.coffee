@@ -1,18 +1,28 @@
 # import modules
-utils     = require 'utils'
-GridCanvas = require 'modules/grid-canvas'
+Route = require 'modules/Route'
+route = null
 
-gridCanvas = null
+init = ->
+  route = new Route()
+  route.init()
 
-initialize = ->
-  return new Promise (resolve) =>
-    # create constructor
-    gridCanvas = new GridCanvas()
-    
-    resolve()
+  $reroute = $ '.js-reroute'
+  $reroute.on 'click', => route.reRoute()
 
 
 # DOM Ready
-$ ->
-  initialize()
-    .then -> gridCanvas.init()
+$ -> init()
+
+
+#
+# console.log wrapper
+#
+window.log = (->
+  if window.console?
+    if window.console.log.bind?
+      return window.console.log.bind window.console
+    else
+      return window.console.log
+  else
+    return window.alert
+)()

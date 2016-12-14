@@ -1,8 +1,31 @@
-/*!
-Theme Name: blanc
-Author: Maboroshi Kondou
-Description: WordPress Theme blanc
-Version: 1.0.0
-*/
+@import 'normalize';
 
-@import '_bootstrap/normalize';
+body {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
+
+#container {
+  margin-top: 50px;
+
+  canvas {
+    margin: 50px auto 0 auto;
+    display: block;
+  }
+}
+
+.btn {
+  background: #333;
+  border: none;
+  color: #fff;
+  display: block;
+  margin: auto;
+  padding: 8px 30px;
+  transition: .2s;
+
+  &:hover {
+    background: #ccc;
+    color: #333;
+  }
+}
