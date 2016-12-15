@@ -16,16 +16,17 @@ body {
 }
 
 .btn {
-  background: #333;
-  border: none;
-  color: #fff;
+  background: transparent;
+  border: solid 1px #34af1d;
+  color: #333;
   display: block;
   margin: auto;
   padding: 8px 30px;
   transition: .2s;
+  position: relative;
 
   &:hover {
-    background: #ccc;
-    color: #333;
+    background: #34af1d;
+    color: #fff;
   }
 }
