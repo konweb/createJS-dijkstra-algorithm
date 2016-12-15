@@ -10369,12 +10369,8 @@
 	      this.canvas.height = height;
 	    }
 	    if (width > containerW) {
-	      this.stage.scaleX = containerW / width;
-	      this.stage.scaleY = containerW / width;
-	      this.canvas.width = containerW;
-	      this.canvas.height = containerW;
-	      this.canvas.style.width = '';
-	      return this.canvas.style.height = '';
+	      this.canvas.style.width = containerW + 'px';
+	      return this.canvas.style.height = containerW + 'px';
 	    }
 	  };
 	

@@ -58,12 +58,8 @@ class GridCanvas
       @canvas.height = height
 
     if width > containerW
-      @stage.scaleX  = containerW / width
-      @stage.scaleY  = containerW / width
-      @canvas.width  = containerW
-      @canvas.height = containerW
-      @canvas.style.width  = ''
-      @canvas.style.height = ''
+      @canvas.style.width  = containerW + 'px'
+      @canvas.style.height = containerW + 'px'
 
 
 
