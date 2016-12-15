@@ -90,22 +90,53 @@ class Route
     for data,i in @pointData
       nearPoints = []
 
+      # 上下の設定
+
       top_id    = data.id - config._GRID
       bottom_id = data.id + config._GRID
       left_id   = data.id - 1
       right_id  = data.id + 1
 
+      # 上端でない場合
       if data.position.indexOf('top') is -1
         nearPoints.push top_id
 
+      # 下端でない場合
       if data.position.indexOf('bottom') is -1
         nearPoints.push bottom_id
 
+      # 左端でない場合
       if data.position.indexOf('left') is -1
         nearPoints.push left_id
 
+      # 右端でない場合
       if data.position.indexOf('right') is -1
         nearPoints.push right_id
+
+
+      # 斜めの設定
+
+      # top_left_id     = top_id - 1
+      # top_right_id    = top_id + 1
+      # bottom_left_id  = bottom_id - 1
+      # bottom_right_id = bottom_id + 1
+
+      # # 上端かつ左端ではない場合、左上のIDを追加
+      # if data.position.indexOf('top') is -1 and data.position.indexOf('left') is -1
+      #   nearPoints.push top_left_id
+
+      # # 上端かつ右端ではない場合、右上のIDを追加
+      # if data.position.indexOf('top') is -1 and data.position.indexOf('right') is -1
+      #   nearPoints.push top_right_id
+
+      # # 下端かつ左端ではない場合、左下のIDを追加
+      # if data.position.indexOf('bottom') is -1 and data.position.indexOf('left') is -1
+      #   nearPoints.push bottom_left_id
+
+      # # 下端かつ右端ではない場合、右下のIDを追加
+      # if data.position.indexOf('bottom') is -1 and data.position.indexOf('left') is -1
+      #   nearPoints.push bottom_right_id
+
 
       @pointData[i].nearPoints = nearPoints
 

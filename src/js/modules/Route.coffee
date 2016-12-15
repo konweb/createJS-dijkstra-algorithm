@@ -83,6 +83,7 @@ class GridCanvas
       if data.type isnt 'wall'
         # テキスト
         str = data.cost
+        # str = data.id
         # str = 'id: ' + data.id + '\ncost: ' + data.cost
         text = new @c.Text(str, '12px Arial', '#666')
         text.x = (config._GRID_SIZE * data.line.x) + (config._GRID_SIZE / 2)
