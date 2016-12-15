@@ -11,7 +11,7 @@ var webpack = require('webpack');
 var path    = require('path');
 
 const SRC_ROOT  = './src';
-const DEST_ROOT = './htdocs';
+const DEST_ROOT = './docs';
 
 let sprites = [
   {
@@ -34,7 +34,7 @@ var settings = exports.settings = {
 
 var src = exports.src = {
   root       : SRC_ROOT,
-  htmlFiles  : `${SRC_ROOT}/html/**/*.pug`,
+  htmlFiles  : `${SRC_ROOT}/html/**/!(_)*.pug`,
   cssDir     : `${SRC_ROOT}/scss`,
   cssFiles   : `${SRC_ROOT}/scss/**/*.scss`,
   jsDir      : `${SRC_ROOT}/js`,

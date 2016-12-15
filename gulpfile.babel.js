@@ -24,6 +24,7 @@ let settings = config.settings;
 
 // define tasks
 gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('build', ['html', 'js:webpack', 'css:preprocessor', 'image:minify']);
 gulp.task('release', ['css:minify', 'js:minify']);
 
 /**
