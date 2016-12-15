@@ -50,7 +50,7 @@ gulp.task('browser-sync', () => {
  * html task
  */
 gulp.task('html', () => {
-  return gulp.src(src.htmlFiles)
+  return gulp.src([src.htmlFiles, '!' + src.root + '/html/**/_*.pug'])
   .pipe($.pug({
     pretty: true
   }))
