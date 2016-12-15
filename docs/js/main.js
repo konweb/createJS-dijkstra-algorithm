@@ -10352,20 +10352,29 @@
 	  };
 	
 	  GridCanvas.prototype.setStage = function() {
-	    var devicePixelRatio, height, width;
+	    var containerW, devicePixelRatio, height, width;
 	    width = config._GRID_SIZE * config._GRID;
 	    height = config._GRID_SIZE * config._GRID;
 	    devicePixelRatio = window.devicePixelRatio;
+	    containerW = $('#container').width();
 	    if (devicePixelRatio) {
 	      this.canvas.width = width * devicePixelRatio;
 	      this.canvas.height = height * devicePixelRatio;
 	      this.canvas.style.width = width + 'px';
 	      this.canvas.style.height = height + 'px';
 	      this.stage.scaleX = devicePixelRatio;
-	      return this.stage.scaleY = devicePixelRatio;
+	      this.stage.scaleY = devicePixelRatio;
 	    } else {
 	      this.canvas.width = width;
-	      return this.canvas.height = height;
+	      this.canvas.height = height;
+	    }
+	    if (width > containerW) {
+	      this.stage.scaleX = containerW / width;
+	      this.stage.scaleY = containerW / width;
+	      this.canvas.width = containerW;
+	      this.canvas.height = containerW;
+	      this.canvas.style.width = '';
+	      return this.canvas.style.height = '';
 	    }
 	  };
 	

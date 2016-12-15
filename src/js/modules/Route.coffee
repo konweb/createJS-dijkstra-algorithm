@@ -43,6 +43,7 @@ class GridCanvas
     width            = config._GRID_SIZE * config._GRID
     height           = config._GRID_SIZE * config._GRID
     devicePixelRatio = window.devicePixelRatio
+    containerW      = $('#container').width()
 
     # devicePixelRatioが存在する場合
     if devicePixelRatio
@@ -55,6 +56,15 @@ class GridCanvas
     else
       @canvas.width  = width
       @canvas.height = height
+
+    if width > containerW
+      @stage.scaleX  = containerW / width
+      @stage.scaleY  = containerW / width
+      @canvas.width  = containerW
+      @canvas.height = containerW
+      @canvas.style.width  = ''
+      @canvas.style.height = ''
+
 
 
   createGrid: ->
