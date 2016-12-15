@@ -1,5 +1,7 @@
 # createJS-dijkstra-algorithm
 
+DEMO → [https://konweb.github.io/createJS-dijkstra-algorithm/](https://konweb.github.io/createJS-dijkstra-algorithm/)
+
 ## Get Started
 __npm package install__
 ```
