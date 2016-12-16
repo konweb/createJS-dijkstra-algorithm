@@ -27,7 +27,11 @@ class GridCanvas
     # update stage
     @c.Ticker.addEventListener('tick', @stage)
 
-    # ルートデータの取得後、グリッドの作成
+    @start()
+
+
+  # ルートデータの取得後、グリッドの作成
+  start: ->
     new Router()
       .then (data) => 
         @pointData = data.point
@@ -139,9 +143,8 @@ class GridCanvas
 
 
   reRoute: ->
-    log 'reRoute'
-    @stage.clear()
-    @init()
+    @stage.removeAllChildren()
+    @start()
 
 
 module.exports = GridCanvas

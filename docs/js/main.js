@@ -10339,6 +10339,10 @@
 	    this.stage = new this.c.Stage(canvas);
 	    this.setStage();
 	    this.c.Ticker.addEventListener('tick', this.stage);
+	    return this.start();
+	  };
+	
+	  GridCanvas.prototype.start = function() {
 	    return new Router().then((function(_this) {
 	      return function(data) {
 	        _this.pointData = data.point;
@@ -10447,9 +10451,8 @@
 	  };
 	
 	  GridCanvas.prototype.reRoute = function() {
-	    log('reRoute');
-	    this.stage.clear();
-	    return this.init();
+	    this.stage.removeAllChildren();
+	    return this.start();
 	  };
 	
 	  return GridCanvas;
